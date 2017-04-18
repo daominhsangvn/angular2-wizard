@@ -58,15 +58,15 @@ export class WizardComponent implements OnInit, AfterContentInit {
     return this._steps.filter(step => !step.hidden);
   }
 
-  private get isCompleted(): boolean {
+  public get isCompleted(): boolean {
     return this._isCompleted;
   }
 
-  private get activeStep(): WizardStepComponent {
+  public get activeStep(): WizardStepComponent {
     return this.steps.find(step => step.isActive);
   }
 
-  private set activeStep(step: WizardStepComponent) {
+  public set activeStep(step: WizardStepComponent) {
     if (step !== this.activeStep && !step.isDisabled) {
       this.activeStep.isActive = false;
       step.isActive = true;
@@ -74,15 +74,15 @@ export class WizardComponent implements OnInit, AfterContentInit {
     }
   }
 
-  private get activeStepIndex(): number {
+  public get activeStepIndex(): number {
     return this.steps.indexOf(this.activeStep);
   }
 
-  private get hasNextStep(): boolean {
+  public get hasNextStep(): boolean {
     return this.activeStepIndex < this.steps.length - 1;
   }
 
-  private get hasPrevStep(): boolean {
+  public get hasPrevStep(): boolean {
     return this.activeStepIndex > 0;
   }
 
